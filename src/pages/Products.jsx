@@ -160,7 +160,7 @@ const Products = () => {
               className={`filter-btn ${activeFilter === 'salao-externo' ? 'active' : ''}`}
               onClick={() => handleFilter('salao-externo')}
             >
-              Salão Externo
+              Área Externa
             </button>
             <button 
               className={`filter-btn ${activeFilter === 'eventos-realizados' ? 'active' : ''}`}

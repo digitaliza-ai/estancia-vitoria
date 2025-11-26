@@ -25,6 +25,7 @@ const Services = () => {
           <div className="section-header">
             <span className="section-subtitle">Nossos Espaços</span>
             <h2 className="section-title">Ambientes para Cada Ocasião</h2>
+            <p>Conheça nossos três espaços exclusivos, cada um com características únicas para tornar seu evento inesquecível</p>
           </div>
 
           <div className="services-grid">
@@ -32,77 +33,45 @@ const Services = () => {
             <div className="service-card">
               <div className="service-img">
                 <div className="service-icon">
-                  <i className="fas fa-home"></i>
+                  <i className="fas fa-crown"></i>
                 </div>
                 <div className="service-number">01</div>
               </div>
               <div className="service-content">
                 <h3>Salão Principal</h3>
                 <p className="service-intro">
-                  Nosso salão principal é o coração da Estância Vitória, oferecendo
-                  um ambiente amplo e elegante para grandes celebrações. Com capacidade
-                  para até 200 pessoas, é perfeito para casamentos, formaturas e eventos corporativos.
+                  Ambiente sofisticado, perfeito para grandes celebrações.
+                  Equipado com toda infraestrutura para casamentos, formaturas e eventos corporativos.
                 </p>
 
                 <div className="service-specs">
-                  <h4>Características:</h4>
+                  <h4><i className="fas fa-star"></i> Destaques:</h4>
                   <div className="specs-grid">
                     <div className="spec-item">
-                      <span className="spec-label">Capacidade:</span>
-                      <span className="spec-value">
-                        Até 200 pessoas
-                      </span>
+                      <i className="fas fa-users"></i>
+                      <div>
+                        <span className="spec-label">Capacidade</span>
+                        <span className="spec-value">Até 100 pessoas</span>
+                      </div>
                     </div>
                     <div className="spec-item">
-                      <span className="spec-label">Área:</span>
-                      <span className="spec-value">
-                        300m² cobertos
-                      </span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Climatização:</span>
-                      <span className="spec-value">Ar condicionado central</span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Iluminação:</span>
-                      <span className="spec-value">
-                        LED decorativa e ambiente
-                      </span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Som:</span>
-                      <span className="spec-value">
-                        Sistema profissional incluso
-                      </span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Decoração:</span>
-                      <span className="spec-value">Personalizada conforme evento</span>
+                      <i className="fas fa-ruler-combined"></i>
+                      <div>
+                        <span className="spec-label">Área Total</span>
+                        <span className="spec-value">300m² cobertos</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="service-benefits">
-                  <h4>Incluso na Locação:</h4>
+                  <h4><i className="fas fa-check-double"></i> Infraestrutura Completa:</h4>
                   <ul className="service-features">
-                    <li>
-                      <i className="fas fa-check-circle"></i> Mesas e cadeiras
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Sistema de som
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Iluminação decorativa
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Cozinha equipada
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Estacionamento
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Área externa integrada
-                    </li>
+                    <li><i className="fas fa-check"></i> Mesas e cadeiras premium</li>
+                    <li><i className="fas fa-check"></i> Sistema de som profissional</li>
+                    <li><i className="fas fa-check"></i> Cozinha industrial equipada</li>
+                    <li><i className="fas fa-check"></i> Banheiros masculino e feminino</li>
+                    <li><i className="fas fa-check"></i> Estacionamento amplo</li>
                   </ul>
                 </div>
 
@@ -112,80 +81,163 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Card 2: Área Externa */}
-            <div className="service-card">
+            {/* Card 2: Área Coberta */}
+            <div className="service-card featured">
+              <div className="featured-badge">
+                <i className="fas fa-fire"></i> Mais Procurado
+              </div>
               <div className="service-img">
                 <div className="service-icon">
-                  <i className="fas fa-tree"></i>
+                  <i className="fas fa-umbrella"></i>
                 </div>
                 <div className="service-number">02</div>
               </div>
               <div className="service-content">
-                <h3>Área Externa</h3>
+                <h3>Área Coberta</h3>
                 <p className="service-intro">
-                  Cercada pela natureza exuberante, nossa área externa oferece
-                  um ambiente único para eventos ao ar livre. Ideal para cerimônias
-                  de casamento, confraternizações e festas mais intimistas.
+                  Espaço versátil ao ar livre com cobertura, unindo o charme do ambiente
+                  natural com proteção e conforto. Ideal para eventos diurnos e noturnos.
                 </p>
 
                 <div className="service-specs">
-                  <h4>Características:</h4>
+                  <h4><i className="fas fa-star"></i> Destaques:</h4>
                   <div className="specs-grid">
                     <div className="spec-item">
-                      <span className="spec-label">Capacidade:</span>
-                      <span className="spec-value">Até 150 pessoas</span>
+                      <i className="fas fa-users"></i>
+                      <div>
+                        <span className="spec-label">Capacidade</span>
+                        <span className="spec-value">Até 200 pessoas</span>
+                      </div>
                     </div>
                     <div className="spec-item">
-                      <span className="spec-label">Área:</span>
-                      <span className="spec-value">500m² de jardim</span>
+                      <i className="fas fa-ruler-combined"></i>
+                      <div>
+                        <span className="spec-label">Área Total</span>
+                        <span className="spec-value">400m² cobertos</span>
+                      </div>
                     </div>
                     <div className="spec-item">
-                      <span className="spec-label">Cobertura:</span>
-                      <span className="spec-value">Tendas disponíveis</span>
+                      <i className="fas fa-home"></i>
+                      <div>
+                        <span className="spec-label">Diferencial Exclusivo</span>
+                        <span className="spec-value">Casa disponível para descanso de familiares</span>
+                      </div>
                     </div>
                     <div className="spec-item">
-                      <span className="spec-label">Paisagismo:</span>
-                      <span className="spec-value">
-                        Jardim com árvores nativas
-                      </span>
+                      <i className="fas fa-cloud-sun"></i>
+                      <div>
+                        <span className="spec-label">Ventilação</span>
+                        <span className="spec-value">Natural e arejada</span>
+                      </div>
                     </div>
                     <div className="spec-item">
-                      <span className="spec-label">Iluminação:</span>
-                      <span className="spec-value">
-                        Decorativa e funcional
-                      </span>
-                    </div>
-                    <div className="spec-item">
-                      <span className="spec-label">Acesso:</span>
-                      <span className="spec-value">Integrado ao salão principal</span>
+                      <i className="fas fa-shield-alt"></i>
+                      <div>
+                        <span className="spec-label">Proteção</span>
+                        <span className="spec-value">Cobertura total</span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="service-benefits">
-                  <h4>Incluso na Locação:</h4>
+                  <h4><i className="fas fa-check-double"></i> Infraestrutura Completa:</h4>
                   <ul className="service-features">
-                    <li>
-                      <i className="fas fa-check-circle"></i> Mobiliário para área externa
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Iluminação de jardim
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Ponto de energia
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Acesso à cozinha
-                    </li>
-                    <li>
-                      <i className="fas fa-check-circle"></i> Banheiros próximos
-                    </li>
+                    <li><i className="fas fa-check"></i> Churrasqueira profissional</li>
+                    <li><i className="fas fa-check"></i> Mesas e bancos rústicos</li>
+                    <li><i className="fas fa-check"></i> Pontos de energia</li>
+                    <li><i className="fas fa-check"></i> Acesso à cozinha</li>
+                    <li><i className="fas fa-check"></i> Vista para área verde</li>
                   </ul>
                 </div>
 
                 <Link href="/contact" className="service-link">
                   Solicitar Orçamento <i className="fas fa-arrow-right"></i>
                 </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Área Externa */}
+            <div className="service-card">
+              <div className="service-img">
+                <div className="service-icon">
+                  <i className="fas fa-leaf"></i>
+                </div>
+                <div className="service-number">03</div>
+              </div>
+              <div className="service-content">
+                <h3>Área Externa</h3>
+                <p className="service-intro">
+                  Amplo jardim cercado pela natureza, perfeito para cerimônias ao ar livre,
+                  confraternizações e eventos mais intimistas em contato com a natureza.
+                </p>
+
+                <div className="service-specs">
+                  <h4><i className="fas fa-star"></i> Destaques:</h4>
+                  <div className="specs-grid">
+                    <div className="spec-item">
+                      <i className="fas fa-users"></i>
+                      <div>
+                        <span className="spec-label">Capacidade</span>
+                        <span className="spec-value">Até 300 pessoas</span>
+                      </div>
+                    </div>
+                    <div className="spec-item">
+                      <i className="fas fa-ruler-combined"></i>
+                      <div>
+                        <span className="spec-label">Área Total</span>
+                        <span className="spec-value">8.000m² de jardim</span>
+                      </div>
+                    </div>
+                    <div className="spec-item">
+                      <i className="fas fa-tree"></i>
+                      <div>
+                        <span className="spec-label">Paisagismo</span>
+                        <span className="spec-value">Árvores nativas</span>
+                      </div>
+                    </div>
+                    <div className="spec-item">
+                      <i className="fas fa-sun"></i>
+                      <div>
+                        <span className="spec-label">Ambiente</span>
+                        <span className="spec-value">Natural e aberto</span>
+                      </div>
+                    </div>
+                    <div className="spec-item">
+                      <i className="fas fa-campground"></i>
+                      <div>
+                        <span className="spec-label">Adicional</span>
+                        <span className="spec-value">Perfeito para acampamentos e encontros religiosos</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="service-benefits">
+                  <h4><i className="fas fa-check-double"></i> Infraestrutura Completa:</h4>
+                  <ul className="service-features">
+                    <li><i className="fas fa-check"></i> Tendas disponíveis (opcional)</li>
+                    <li><i className="fas fa-check"></i> Pontos de energia</li>
+                    <li><i className="fas fa-check"></i> Acesso aos banheiros</li>
+                    <li><i className="fas fa-check"></i> Integração com salões</li>
+                    <li><i className="fas fa-check"></i> Estacionamento próximo</li>
+                  </ul>
+                </div>
+
+                <Link href="/contact" className="service-link">
+                  Solicitar Orçamento <i className="fas fa-arrow-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Info Box */}
+          <div className="services-info">
+            <div className="info-card">
+              <i className="fas fa-info-circle"></i>
+              <div className="info-content">
+                <h4>Personalize seu Evento</h4>
+                <p>Todos os nossos espaços podem ser combinados para criar o evento perfeito. Entre em contato para conhecer as opções de pacotes personalizados.</p>
               </div>
             </div>
           </div>
