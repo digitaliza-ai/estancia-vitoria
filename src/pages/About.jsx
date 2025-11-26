@@ -89,7 +89,7 @@ const About = () => {
                   <div className="stat-number">
                     +<span 
                       className="counter" 
-                      data-target="8"
+                      data-target="16"
                       ref={el => countersRef.current[1] = el}
                     >
                       0
