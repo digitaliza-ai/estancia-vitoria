@@ -159,7 +159,7 @@ const Home = () => {
             <p className="section-description">
               Na Estância Vitória, você pode fechar pacotes para vários dias ou
               apenas para o final de semana, aproveitando toda nossa
-              infraestrutura exclusiva
+              infraestrutura
             </p>
           </div>
 
@@ -169,13 +169,12 @@ const Home = () => {
                 <div className="diferencial-icon">
                   <i className="fas fa-home"></i>
                 </div>
-                <h3>Hospedagem Completa Inclusa</h3>
+                <h3>Sinta-se em casa</h3>
                 <p>
-                  Desfrute do conforto de uma casa onde, além do lazer, você
-                  terá tranquilidade para permanecer no local, sem os
-                  transtornos de precisar voltar no dia seguinte. É ideal para
-                  receber familiares e amigos, especialmente em casamentos e
-                  celebrações especiais que merecem momentos únicos.
+                  Na Estância Vitória, você poderá vivenciar dias memoráveis,
+                  desfrutando da estrutura de uma casa ampla para acomodações,
+                  além de um espaço de 8.000 m², sem abrir mão da comodidade de
+                  estar praticamente dentro da cidade.
                 </p>
                 <div className="diferencial-features">
                   <div className="feature-badge">
@@ -206,7 +205,7 @@ const Home = () => {
                 <div className="benefit-content">
                   <h4>Pacotes Flexíveis</h4>
                   <p>
-                    Ofrecemos reservas para vários dias, final de semana, ou
+                    Oferecemos reservas para vários dias, final de semana, ou
                     apenas uma diária, conforme seu evento.
                   </p>
                 </div>
@@ -230,7 +229,7 @@ const Home = () => {
           <div className="infraestrutura-grid">
             <div className="section-header" style={{ marginTop: "60px" }}>
               <h3 className="section-title" style={{ fontSize: "2rem" }}>
-                Infraestrutura Completa
+                Conheça Nossa Infraestrutura
               </h3>
             </div>
 

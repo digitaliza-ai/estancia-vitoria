@@ -8,7 +8,7 @@ const Services = () => {
       <section className="hero" id="home">
         <div className="container hero-content">
           <span className="hero-subtitle">Conheça Nossos Espaços</span>
-          <h1 className="hero-title">Ambientes Únicos para Eventos Especiais</h1>
+          <h1 className="hero-title">Ambientes para Eventos Especiais</h1>
           <p className="hero-description">
             Descubra os espaços versáteis da Estância Vitória, perfeitos para 
             casamentos, aniversários, confraternizações e celebrações inesquecíveis.
@@ -112,7 +112,7 @@ const Services = () => {
                       <i className="fas fa-home"></i>
                       <div>
                         <span className="spec-label">Diferencial Exclusivo</span>
-                        <span className="spec-value">Casa disponível para descanso de familiares</span>
+                        <span className="spec-value">Casa disponível para acomodar seus convidados e familiares.</span>
                       </div>
                     </div>
                     <div className="spec-item">
@@ -120,13 +120,6 @@ const Services = () => {
                       <div>
                         <span className="spec-label">Ventilação</span>
                         <span className="spec-value">Natural e arejada</span>
-                      </div>
-                    </div>
-                    <div className="spec-item">
-                      <i className="fas fa-shield-alt"></i>
-                      <div>
-                        <span className="spec-label">Proteção</span>
-                        <span className="spec-value">Cobertura total</span>
                       </div>
                     </div>
                   </div>
@@ -167,14 +160,14 @@ const Services = () => {
                       <i className="fas fa-users"></i>
                       <div>
                         <span className="spec-label">Capacidade</span>
-                        <span className="spec-value">Até 300 pessoas</span>
+                        <span className="spec-value">400 pessoas</span>
                       </div>
                     </div>
                     <div className="spec-item">
                       <i className="fas fa-ruler-combined"></i>
                       <div>
                         <span className="spec-label">Área Total</span>
-                        <span className="spec-value">8.000m² de jardim</span>
+                        <span className="spec-value">8.000m² de cercado</span>
                       </div>
                     </div>
                     <div className="spec-item">
@@ -208,7 +201,7 @@ const Services = () => {
                     <li><i className="fas fa-check"></i> Pontos de energia</li>
                     <li><i className="fas fa-check"></i> Acesso aos banheiros</li>
                     <li><i className="fas fa-check"></i> Integração com salões</li>
-                    <li><i className="fas fa-check"></i> Estacionamento próximo</li>
+                    <li><i className="fas fa-check"></i> Estacionamento</li>
                   </ul>
                 </div>
 

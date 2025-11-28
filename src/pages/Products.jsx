@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Products = () => {
   const [photos, setPhotos] = useState([]);
   const [filteredPhotos, setFilteredPhotos] = useState([]);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [isLoading, setIsLoading] = useState(true);
   const [driveStatus, setDriveStatus] = useState(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Configuração da integração com Google Drive - 3 pastas separadas
-  const SALAO_INTERNO_FOLDER_ID = process.env.NEXT_PUBLIC_DRIVE_FOLDER_SALAO_INTERNO;
-  const SALAO_EXTERNO_FOLDER_ID = process.env.NEXT_PUBLIC_DRIVE_FOLDER_SALAO_EXTERNO;
-  const EVENTOS_REALIZADOS_FOLDER_ID = process.env.NEXT_PUBLIC_DRIVE_FOLDER_EVENTOS_REALIZADOS;
+  // Configuração da integração com Google Drive - 4 pastas separadas
+  const SALAO_INTERNO_FOLDER_ID =
+    process.env.NEXT_PUBLIC_DRIVE_FOLDER_SALAO_INTERNO;
+  const SALAO_EXTERNO_FOLDER_ID =
+    process.env.NEXT_PUBLIC_DRIVE_FOLDER_SALAO_EXTERNO;
+  const EVENTOS_REALIZADOS_FOLDER_ID =
+    process.env.NEXT_PUBLIC_DRIVE_FOLDER_EVENTOS_REALIZADOS;
+  const CASA_FOLDER_ID = process.env.NEXT_PUBLIC_DRIVE_FOLDER_CASA;
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY;
 
   // Função para buscar imagens do Google Drive
@@ -46,60 +52,85 @@ const Products = () => {
   useEffect(() => {
     const loadPhotos = async () => {
       try {
-        // Buscar imagens das 3 pastas separadas
-        const [salaoInternoResult, salaoExternoResult, eventosResult] = await Promise.all([
+        // Buscar imagens das 4 pastas separadas
+        const [
+          salaoInternoResult,
+          salaoExternoResult,
+          eventosResult,
+          casaResult,
+        ] = await Promise.all([
           fetchDriveImages(SALAO_INTERNO_FOLDER_ID),
           fetchDriveImages(SALAO_EXTERNO_FOLDER_ID),
-          fetchDriveImages(EVENTOS_REALIZADOS_FOLDER_ID)
+          fetchDriveImages(EVENTOS_REALIZADOS_FOLDER_ID),
+          fetchDriveImages(CASA_FOLDER_ID),
         ]);
 
         // Verificar erros em qualquer pasta
         const errors = [];
-        if (salaoInternoResult.error) errors.push(`Salão Interno: ${salaoInternoResult.error}`);
-        if (salaoExternoResult.error) errors.push(`Salão Externo: ${salaoExternoResult.error}`);
+        if (salaoInternoResult.error)
+          errors.push(`Salão Interno: ${salaoInternoResult.error}`);
+        if (salaoExternoResult.error)
+          errors.push(`Salão Externo: ${salaoExternoResult.error}`);
         if (eventosResult.error) errors.push(`Eventos: ${eventosResult.error}`);
+        if (casaResult.error) errors.push(`Casa: ${casaResult.error}`);
 
         if (errors.length > 0) {
           console.error("Erros ao carregar imagens:", errors);
           setDriveStatus({
-            type: 'error',
-            message: 'Erro na conexão com Google Drive',
-            details: errors.join('; ')
+            type: "error",
+            message: "Erro na conexão com Google Drive",
+            details: errors.join("; "),
           });
           setIsLoading(false);
           return;
         }
 
         // Formatando os dados das fotos de cada pasta
-        const salaoInternoPhotos = (salaoInternoResult.files || []).map((image) => ({
-          id: image.id,
-          name: image.name.split(".")[0],
-          imageUrl: getDirectImageUrl(image.id),
-          category: 'salao-principal',
-        }));
+        const salaoInternoPhotos = (salaoInternoResult.files || []).map(
+          (image) => ({
+            id: image.id,
+            name: image.name.split(".")[0],
+            imageUrl: getDirectImageUrl(image.id),
+            category: "salao-principal",
+          })
+        );
 
-        const salaoExternoPhotos = (salaoExternoResult.files || []).map((image) => ({
-          id: image.id,
-          name: image.name.split(".")[0],
-          imageUrl: getDirectImageUrl(image.id),
-          category: 'area-externa',
-        }));
+        const salaoExternoPhotos = (salaoExternoResult.files || []).map(
+          (image) => ({
+            id: image.id,
+            name: image.name.split(".")[0],
+            imageUrl: getDirectImageUrl(image.id),
+            category: "area-externa",
+          })
+        );
 
         const eventosPhotos = (eventosResult.files || []).map((image) => ({
           id: image.id,
           name: image.name.split(".")[0],
           imageUrl: getDirectImageUrl(image.id),
-          category: 'eventos-realizados',
+          category: "eventos-realizados",
         }));
 
-        // Combinar todas as fotos
-        const allPhotos = [...salaoInternoPhotos, ...salaoExternoPhotos, ...eventosPhotos];
+        const casaPhotos = (casaResult.files || []).map((image) => ({
+          id: image.id,
+          name: image.name.split(".")[0],
+          imageUrl: getDirectImageUrl(image.id),
+          category: "casa",
+        }));
+
+        // Combinar todas as fotos e ordenar alfabeticamente
+        const allPhotos = [
+          ...salaoInternoPhotos,
+          ...salaoExternoPhotos,
+          ...eventosPhotos,
+          ...casaPhotos,
+        ].sort((a, b) => a.name.localeCompare(b.name));
 
         // Mostrar status de sucesso
         setDriveStatus({
-          type: 'success',
-          message: 'Conexão com Google Drive bem-sucedida',
-          details: `Carregadas ${allPhotos.length} fotos (${salaoInternoPhotos.length} Salão Interno, ${salaoExternoPhotos.length} Salão Externo, ${eventosPhotos.length} Eventos)`
+          type: "success",
+          message: "Conexão com Google Drive bem-sucedida",
+          details: `Carregadas ${allPhotos.length} fotos (${salaoInternoPhotos.length} Salão Interno, ${salaoExternoPhotos.length} Área Externa, ${eventosPhotos.length} Eventos, ${casaPhotos.length} Casa)`,
         });
 
         setPhotos(allPhotos);
@@ -108,9 +139,9 @@ const Products = () => {
         console.error("Erro ao carregar fotos:", error);
 
         setDriveStatus({
-          type: 'error',
-          message: 'Erro inesperado',
-          details: error.message
+          type: "error",
+          message: "Erro inesperado",
+          details: error.message,
         });
       } finally {
         setIsLoading(false);
@@ -123,14 +154,54 @@ const Products = () => {
   // Filtrar fotos
   const handleFilter = (filter) => {
     setActiveFilter(filter);
-    
-    if (filter === 'all') {
-      setFilteredPhotos(photos);
+
+    if (filter === "all") {
+      setFilteredPhotos([...photos].sort((a, b) => a.name.localeCompare(b.name)));
     } else {
-      const filtered = photos.filter(photo => photo.category === filter);
+      const filtered = photos
+        .filter((photo) => photo.category === filter)
+        .sort((a, b) => a.name.localeCompare(b.name));
       setFilteredPhotos(filtered);
     }
   };
+
+  // Funções do Lightbox
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === filteredPhotos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? filteredPhotos.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Navegação por teclado
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!lightboxOpen) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') goToNext();
+      if (e.key === 'ArrowLeft') goToPrevious();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, currentImageIndex, filteredPhotos.length]);
 
   return (
     <>
@@ -144,27 +215,41 @@ const Products = () => {
           </div>
 
           <div className="products-filter">
-            <button 
-              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-              onClick={() => handleFilter('all')}
+            <button
+              className={`filter-btn ${activeFilter === "all" ? "active" : ""}`}
+              onClick={() => handleFilter("all")}
             >
               Todas as Fotos
             </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'salao-principal' ? 'active' : ''}`}
-              onClick={() => handleFilter('salao-principal')}
+            <button
+              className={`filter-btn ${
+                activeFilter === "salao-principal" ? "active" : ""
+              }`}
+              onClick={() => handleFilter("salao-principal")}
             >
               Salão Interno
             </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'area-externa' ? 'active' : ''}`}
-              onClick={() => handleFilter('area-externa')}
+            <button
+              className={`filter-btn ${
+                activeFilter === "area-externa" ? "active" : ""
+              }`}
+              onClick={() => handleFilter("area-externa")}
             >
               Área Externa
             </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'eventos-realizados' ? 'active' : ''}`}
-              onClick={() => handleFilter('eventos-realizados')}
+            <button
+              className={`filter-btn ${
+                activeFilter === "casa" ? "active" : ""
+              }`}
+              onClick={() => handleFilter("casa")}
+            >
+              Casa
+            </button>
+            <button
+              className={`filter-btn ${
+                activeFilter === "eventos-realizados" ? "active" : ""
+              }`}
+              onClick={() => handleFilter("eventos-realizados")}
             >
               Eventos Realizados
             </button>
@@ -179,20 +264,33 @@ const Products = () => {
             ) : filteredPhotos.length === 0 ? (
               <div className="loading">
                 <i className="fas fa-exclamation-circle"></i>
-                <p>Nenhuma foto encontrada. Verifique a configuração do Google Drive.</p>
+                <p>
+                  Nenhuma foto encontrada. Verifique a configuração do Google
+                  Drive.
+                </p>
               </div>
             ) : (
-              filteredPhotos.map((photo) => (
-                <div key={photo.id} className="product-card" data-category={photo.category}>
+              filteredPhotos.map((photo, index) => (
+                <div
+                  key={photo.id}
+                  className="product-card"
+                  data-category={photo.category}
+                  onClick={() => openLightbox(index)}
+                >
                   <div className="product-image">
-                    <img 
-                      src={photo.imageUrl} 
-                      alt={photo.name} 
-                      loading="lazy" 
+                    <img
+                      src={photo.imageUrl}
+                      alt={photo.name}
+                      loading="lazy"
                       onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/300x200/2a4d6e/ffffff?text=Foto+Não+Carregada';
+                        e.target.src =
+                          "https://via.placeholder.com/300x200/2a4d6e/ffffff?text=Foto+Não+Carregada";
                       }}
                     />
+                    <div className="product-overlay">
+                      <i className="fas fa-search-plus"></i>
+                      <span>Ampliar</span>
+                    </div>
                   </div>
                   <div className="product-info">
                     <h3 className="product-title">{photo.name}</h3>
@@ -201,9 +299,37 @@ const Products = () => {
               ))
             )}
           </div>
-
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightboxOpen && filteredPhotos.length > 0 && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>
+            <i className="fas fa-times"></i>
+          </button>
+          
+          <button className="lightbox-nav lightbox-prev" onClick={(e) => { e.stopPropagation(); goToPrevious(); }}>
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={filteredPhotos[currentImageIndex].imageUrl.replace('=s500', '=s1200')} 
+              alt={filteredPhotos[currentImageIndex].name}
+              className="lightbox-image"
+            />
+            <div className="lightbox-info">
+              <h3>{filteredPhotos[currentImageIndex].name}</h3>
+              <p>{currentImageIndex + 1} / {filteredPhotos.length}</p>
+            </div>
+          </div>
+          
+          <button className="lightbox-nav lightbox-next" onClick={(e) => { e.stopPropagation(); goToNext(); }}>
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      )}
     </>
   );
 };
