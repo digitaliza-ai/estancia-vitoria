@@ -82,7 +82,7 @@ const Products = () => {
           id: image.id,
           name: image.name.split(".")[0],
           imageUrl: getDirectImageUrl(image.id),
-          category: 'salao-externo',
+          category: 'area-externa',
         }));
 
         const eventosPhotos = (eventosResult.files || []).map((image) => ({
@@ -157,8 +157,8 @@ const Products = () => {
               Salão Interno
             </button>
             <button 
-              className={`filter-btn ${activeFilter === 'salao-externo' ? 'active' : ''}`}
-              onClick={() => handleFilter('salao-externo')}
+              className={`filter-btn ${activeFilter === 'area-externa' ? 'active' : ''}`}
+              onClick={() => handleFilter('area-externa')}
             >
               Área Externa
             </button>

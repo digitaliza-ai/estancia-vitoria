@@ -25,7 +25,7 @@ const Services = () => {
           <div className="section-header">
             <span className="section-subtitle">Nossos Espaços</span>
             <h2 className="section-title">Ambientes para Cada Ocasião</h2>
-            <p>Conheça nossos três espaços exclusivos, cada um com características únicas para tornar seu evento inesquecível</p>
+            <p>Conheça nosso espaço, perfeito para tornar seu evento inesquecível</p>
           </div>
 
           <div className="services-grid">
@@ -38,11 +38,7 @@ const Services = () => {
                 <div className="service-number">01</div>
               </div>
               <div className="service-content">
-                <h3>Salão Principal</h3>
-                <p className="service-intro">
-                  Ambiente sofisticado, perfeito para grandes celebrações.
-                  Equipado com toda infraestrutura para casamentos, formaturas e eventos corporativos.
-                </p>
+                <h3>Salão Fechado</h3>
 
                 <div className="service-specs">
                   <h4><i className="fas fa-star"></i> Destaques:</h4>
@@ -51,7 +47,7 @@ const Services = () => {
                       <i className="fas fa-users"></i>
                       <div>
                         <span className="spec-label">Capacidade</span>
-                        <span className="spec-value">Até 100 pessoas</span>
+                        <span className="spec-value">Para 100 pessoas</span>
                       </div>
                     </div>
                     <div className="spec-item">
@@ -67,10 +63,9 @@ const Services = () => {
                 <div className="service-benefits">
                   <h4><i className="fas fa-check-double"></i> Infraestrutura Completa:</h4>
                   <ul className="service-features">
-                    <li><i className="fas fa-check"></i> Mesas e cadeiras premium</li>
-                    <li><i className="fas fa-check"></i> Sistema de som profissional</li>
-                    <li><i className="fas fa-check"></i> Cozinha industrial equipada</li>
-                    <li><i className="fas fa-check"></i> Banheiros masculino e feminino</li>
+                    <li><i className="fas fa-check"></i> Mesas e cadeiras</li>
+                    <li><i className="fas fa-check"></i> Cozinha equipada</li>
+                    <li><i className="fas fa-check"></i> Banheiros masculino, feminino e cadeirante</li>
                     <li><i className="fas fa-check"></i> Estacionamento amplo</li>
                   </ul>
                 </div>
@@ -94,26 +89,23 @@ const Services = () => {
               </div>
               <div className="service-content">
                 <h3>Área Coberta</h3>
-                <p className="service-intro">
-                  Espaço versátil ao ar livre com cobertura, unindo o charme do ambiente
-                  natural com proteção e conforto. Ideal para eventos diurnos e noturnos.
-                </p>
 
                 <div className="service-specs">
                   <h4><i className="fas fa-star"></i> Destaques:</h4>
                   <div className="specs-grid">
                     <div className="spec-item">
-                      <i className="fas fa-users"></i>
+                      <i className="fas fa-ruler-combined"></i>
                       <div>
-                        <span className="spec-label">Capacidade</span>
-                        <span className="spec-value">Até 200 pessoas</span>
+                        <span className="spec-label">Área Total</span>
+                        <span className="spec-value">400m² - Pode ser utilizado 
+                          tendas para eventos maiores</span>
                       </div>
                     </div>
                     <div className="spec-item">
                       <i className="fas fa-ruler-combined"></i>
                       <div>
-                        <span className="spec-label">Área Total</span>
-                        <span className="spec-value">400m² cobertos</span>
+                        <span className="spec-label">Área Total Coberta</span>
+                        <span className="spec-value">100m² cobertos</span>
                       </div>
                     </div>
                     <div className="spec-item">
@@ -143,8 +135,8 @@ const Services = () => {
                 <div className="service-benefits">
                   <h4><i className="fas fa-check-double"></i> Infraestrutura Completa:</h4>
                   <ul className="service-features">
-                    <li><i className="fas fa-check"></i> Churrasqueira profissional</li>
-                    <li><i className="fas fa-check"></i> Mesas e bancos rústicos</li>
+                    <li><i className="fas fa-check"></i> Churrasqueira</li>
+                    <li><i className="fas fa-check"></i> Mesa e bancos rústicos</li>
                     <li><i className="fas fa-check"></i> Pontos de energia</li>
                     <li><i className="fas fa-check"></i> Acesso à cozinha</li>
                     <li><i className="fas fa-check"></i> Vista para área verde</li>
@@ -167,10 +159,6 @@ const Services = () => {
               </div>
               <div className="service-content">
                 <h3>Área Externa</h3>
-                <p className="service-intro">
-                  Amplo jardim cercado pela natureza, perfeito para cerimônias ao ar livre,
-                  confraternizações e eventos mais intimistas em contato com a natureza.
-                </p>
 
                 <div className="service-specs">
                   <h4><i className="fas fa-star"></i> Destaques:</h4>
@@ -193,7 +181,7 @@ const Services = () => {
                       <i className="fas fa-tree"></i>
                       <div>
                         <span className="spec-label">Paisagismo</span>
-                        <span className="spec-value">Árvores nativas</span>
+                        <span className="spec-value">Árvores nativas e ornamentais</span>
                       </div>
                     </div>
                     <div className="spec-item">
